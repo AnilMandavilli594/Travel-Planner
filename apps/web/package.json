@@ -11,10 +11,15 @@
     "check-types": "next typegen && tsc --noEmit"
   },
   "dependencies": {
+    "@apollo/client": "^4.1.4",
     "@repo/ui": "*",
+    "graphql": "^16.12.0",
     "next": "16.1.5",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react-dom": "^19.2.0",
+    "rxjs": "^7.8.2",
+    "y-websocket": "^3.0.0",
+    "yjs": "^13.6.29"
   },
   "devDependencies": {
     "@repo/eslint-config": "*",
