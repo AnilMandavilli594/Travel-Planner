@@ -2270,6 +2270,7 @@ export namespace Prisma {
     id: string | null
     title: string | null
     ownerId: string | null
+    content: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -2278,6 +2279,7 @@ export namespace Prisma {
     id: string | null
     title: string | null
     ownerId: string | null
+    content: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -2286,6 +2288,7 @@ export namespace Prisma {
     id: number
     title: number
     ownerId: number
+    content: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -2296,6 +2299,7 @@ export namespace Prisma {
     id?: true
     title?: true
     ownerId?: true
+    content?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -2304,6 +2308,7 @@ export namespace Prisma {
     id?: true
     title?: true
     ownerId?: true
+    content?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -2312,6 +2317,7 @@ export namespace Prisma {
     id?: true
     title?: true
     ownerId?: true
+    content?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -2393,6 +2399,7 @@ export namespace Prisma {
     id: string
     title: string
     ownerId: string
+    content: string
     createdAt: Date
     updatedAt: Date
     _count: TripCountAggregateOutputType | null
@@ -2418,6 +2425,7 @@ export namespace Prisma {
     id?: boolean
     title?: boolean
     ownerId?: boolean
+    content?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     members?: boolean | Trip$membersArgs<ExtArgs>
@@ -2429,6 +2437,7 @@ export namespace Prisma {
     id?: boolean
     title?: boolean
     ownerId?: boolean
+    content?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["trip"]>
@@ -2437,6 +2446,7 @@ export namespace Prisma {
     id?: boolean
     title?: boolean
     ownerId?: boolean
+    content?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["trip"]>
@@ -2445,11 +2455,12 @@ export namespace Prisma {
     id?: boolean
     title?: boolean
     ownerId?: boolean
+    content?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type TripOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "ownerId" | "createdAt" | "updatedAt", ExtArgs["result"]["trip"]>
+  export type TripOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "ownerId" | "content" | "createdAt" | "updatedAt", ExtArgs["result"]["trip"]>
   export type TripInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     members?: boolean | Trip$membersArgs<ExtArgs>
     expenses?: boolean | Trip$expensesArgs<ExtArgs>
@@ -2468,6 +2479,7 @@ export namespace Prisma {
       id: string
       title: string
       ownerId: string
+      content: string
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["trip"]>
@@ -2898,6 +2910,7 @@ export namespace Prisma {
     readonly id: FieldRef<"Trip", 'String'>
     readonly title: FieldRef<"Trip", 'String'>
     readonly ownerId: FieldRef<"Trip", 'String'>
+    readonly content: FieldRef<"Trip", 'String'>
     readonly createdAt: FieldRef<"Trip", 'DateTime'>
     readonly updatedAt: FieldRef<"Trip", 'DateTime'>
   }
@@ -5539,6 +5552,7 @@ export namespace Prisma {
     id: 'id',
     title: 'title',
     ownerId: 'ownerId',
+    content: 'content',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -5700,6 +5714,7 @@ export namespace Prisma {
     id?: StringFilter<"Trip"> | string
     title?: StringFilter<"Trip"> | string
     ownerId?: StringFilter<"Trip"> | string
+    content?: StringFilter<"Trip"> | string
     createdAt?: DateTimeFilter<"Trip"> | Date | string
     updatedAt?: DateTimeFilter<"Trip"> | Date | string
     members?: TripMemberListRelationFilter
@@ -5710,6 +5725,7 @@ export namespace Prisma {
     id?: SortOrder
     title?: SortOrder
     ownerId?: SortOrder
+    content?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     members?: TripMemberOrderByRelationAggregateInput
@@ -5723,6 +5739,7 @@ export namespace Prisma {
     NOT?: TripWhereInput | TripWhereInput[]
     title?: StringFilter<"Trip"> | string
     ownerId?: StringFilter<"Trip"> | string
+    content?: StringFilter<"Trip"> | string
     createdAt?: DateTimeFilter<"Trip"> | Date | string
     updatedAt?: DateTimeFilter<"Trip"> | Date | string
     members?: TripMemberListRelationFilter
@@ -5733,6 +5750,7 @@ export namespace Prisma {
     id?: SortOrder
     title?: SortOrder
     ownerId?: SortOrder
+    content?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: TripCountOrderByAggregateInput
@@ -5747,6 +5765,7 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"Trip"> | string
     title?: StringWithAggregatesFilter<"Trip"> | string
     ownerId?: StringWithAggregatesFilter<"Trip"> | string
+    content?: StringWithAggregatesFilter<"Trip"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Trip"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Trip"> | Date | string
   }
@@ -5916,6 +5935,7 @@ export namespace Prisma {
     id?: string
     title: string
     ownerId: string
+    content?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     members?: TripMemberCreateNestedManyWithoutTripInput
@@ -5926,6 +5946,7 @@ export namespace Prisma {
     id?: string
     title: string
     ownerId: string
+    content?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     members?: TripMemberUncheckedCreateNestedManyWithoutTripInput
@@ -5936,6 +5957,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     ownerId?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     members?: TripMemberUpdateManyWithoutTripNestedInput
@@ -5946,6 +5968,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     ownerId?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     members?: TripMemberUncheckedUpdateManyWithoutTripNestedInput
@@ -5956,6 +5979,7 @@ export namespace Prisma {
     id?: string
     title: string
     ownerId: string
+    content?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -5964,6 +5988,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     ownerId?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -5972,6 +5997,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     ownerId?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -6185,6 +6211,7 @@ export namespace Prisma {
     id?: SortOrder
     title?: SortOrder
     ownerId?: SortOrder
+    content?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -6193,6 +6220,7 @@ export namespace Prisma {
     id?: SortOrder
     title?: SortOrder
     ownerId?: SortOrder
+    content?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -6201,6 +6229,7 @@ export namespace Prisma {
     id?: SortOrder
     title?: SortOrder
     ownerId?: SortOrder
+    content?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -6720,6 +6749,7 @@ export namespace Prisma {
     id?: string
     title: string
     ownerId: string
+    content?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     expenses?: ExpenseCreateNestedManyWithoutTripInput
@@ -6729,6 +6759,7 @@ export namespace Prisma {
     id?: string
     title: string
     ownerId: string
+    content?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     expenses?: ExpenseUncheckedCreateNestedManyWithoutTripInput
@@ -6771,6 +6802,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     ownerId?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     expenses?: ExpenseUpdateManyWithoutTripNestedInput
@@ -6780,6 +6812,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     ownerId?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     expenses?: ExpenseUncheckedUpdateManyWithoutTripNestedInput
@@ -6812,6 +6845,7 @@ export namespace Prisma {
     id?: string
     title: string
     ownerId: string
+    content?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     members?: TripMemberCreateNestedManyWithoutTripInput
@@ -6821,6 +6855,7 @@ export namespace Prisma {
     id?: string
     title: string
     ownerId: string
+    content?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     members?: TripMemberUncheckedCreateNestedManyWithoutTripInput
@@ -6846,6 +6881,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     ownerId?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     members?: TripMemberUpdateManyWithoutTripNestedInput
@@ -6855,6 +6891,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     ownerId?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     members?: TripMemberUncheckedUpdateManyWithoutTripNestedInput

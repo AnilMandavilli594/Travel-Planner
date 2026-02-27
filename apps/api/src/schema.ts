@@ -2,6 +2,7 @@ export const typeDefs = /* GraphQL */ `
   type Trip {
     id: ID!
     title: String!
+    content: String!
     createdAt: String!
     updatedAt: String!
   }
@@ -15,5 +16,6 @@ export const typeDefs = /* GraphQL */ `
 
   type Mutation {
     createTrip(title: String!): Trip!
+    updateTripContent(id: ID!, content: String!): Trip!
   }
 `;

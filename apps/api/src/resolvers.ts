@@ -11,7 +11,7 @@ export const resolvers = {
 
       return prisma.trip.findMany({
         where: {
-          ownerId: context.user.sub,
+          ownerId: context.user.id,
         },
       });
     },
@@ -27,7 +27,7 @@ export const resolvers = {
 
       if (!trip) return null;
 
-      if (trip.ownerId !== context.user.sub) {
+      if (trip.ownerId !== context.user.id) {
         throw new Error("Forbidden");
       }
 
@@ -44,7 +44,35 @@ export const resolvers = {
       return prisma.trip.create({
         data: {
           title,
-          ownerId: context.user.sub,
+          ownerId: context.user.id,
+        },
+      });
+    },
+    updateTripContent: async (
+      _: any,
+      { id, content }: any,
+      context: any
+    ) => {
+      if (!context.user) {
+        throw new Error("Not authenticated");
+      }
+
+      const trip = await prisma.trip.findUnique({
+        where: { id },
+      });
+
+      if (!trip) {
+        throw new Error("Trip not found");
+      }
+
+      if (trip.ownerId !== context.user.id) {
+        throw new Error("Forbidden");
+      }
+
+      return prisma.trip.update({
+        where: { id },
+        data: {
+          content,
         },
       });
     },

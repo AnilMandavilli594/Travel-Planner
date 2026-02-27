@@ -1,45 +1,16 @@
-import jwt from "jsonwebtoken";
-import jwksClient from "jwks-rsa";
+import { createClient } from "@supabase/supabase-js";
 
-const supabaseUrl = process.env.SUPABASE_URL;
-if (!supabaseUrl) {
-  throw new Error(
-    "Missing SUPABASE_URL. Set it in apps/api/.env (see apps/api/.env.example)."
-  );
-}
+const supabase = createClient(
+  process.env.SUPABASE_URL!,
+  process.env.SUPABASE_SERVICE_ROLE_KEY!
+);
 
-const supabaseJwtSecret = process.env.SUPABASE_JWT_SECRET;
+export const verifyToken = async (token: string) => {
+  const { data, error } = await supabase.auth.getUser(token);
 
-const client = jwksClient({
-  jwksUri: `${supabaseUrl}/auth/v1/keys`,
-});
+  if (error || !data.user) {
+    throw new Error("Invalid token");
+  }
 
-function getKey(header: any, callback: any) {
-  client.getSigningKey(header.kid, function (err, key) {
-    if (err) {
-      callback(err, undefined);
-      return;
-    }
-    const signingKey = key?.getPublicKey();
-    if (!signingKey) {
-      callback(new Error("Unable to resolve JWT signing key"), undefined);
-      return;
-    }
-    callback(null, signingKey);
-  });
-}
-
-export const verifyToken = (token: string) =>
-  new Promise((resolve, reject) => {
-    jwt.verify(
-      token,
-      getKey,
-      {
-        algorithms: ["RS256", "ES256"],
-      },
-      (err, decoded) => {
-        if (err) reject(err);
-        else resolve(decoded);
-      }
-    );
-  });
+  return data.user;
+};

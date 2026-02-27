@@ -130,6 +130,7 @@ exports.Prisma.TripScalarFieldEnum = {
   id: 'id',
   title: 'title',
   ownerId: 'ownerId',
+  content: 'content',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
