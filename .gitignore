@@ -39,3 +39,12 @@ yarn-error.log*
 
 #notes
 notes.md
+
+.env
+.env.local
+.env.*
+dist
+.next
+generated
+
+packages/db/.env
